@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name='keywords' content='WebRTC, HTML5, JavaScript'/>
+    <meta name='description' content='WebRTC Reference App'/>
+    <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1'>
+
+    <base target='_blank'>
+
+    <title>WebRTC client</title>
+
+    <!-- <link rel='stylesheet' href='assets/css/main.css' /> -->
+
+    <!-- Bootstrap Material Design -->
+    <link rel="stylesheet" type="text/css" href="assets/material/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/material/css/bootstrap-material-design.css">
+    <link rel="stylesheet" type="text/css" href="assets/material/css/ripples.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/material/css/style.css">
+    <script src="assets/material/js/jquery.min.js"></script>
+    <script>
+        var qs = (function (a) {
+            if (a == "") return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i) {
+                var p = a[i].split('=', 2);
+                if (p.length == 1)
+                    b[p[0]] = "";
+                else
+                    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            return b;
+        })(window.location.search.substr(1).split('&'));
+        var roomUser = qs['room'];
+    </script>
+
+</head>
+
+<body>
+<div class="header-panel shadow-z-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-3">
+                <h1>Simple video chat</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container main" style="height: 198px;">
+    <div class="row">
+        <div class="pages col-xs-9" style="height: 100%;">
+            <div class="row">
+                <div class="col-xs-10">
+                    <div class="well page active" id="about" style="display: block;">
+                        <form class="form-horizontal" method="get" action="chat.html">
+                            <fieldset>
+                                <legend>Create Room</legend>
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-md-2 control-label">Room</label>
+
+                                    <div class="col-md-10">
+                                        <input type="room" name="room" class="form-control" id="inputEmail" placeholder="Create your room">
+                                    </div>
+                                    <span class="material-input"></span>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-10 col-md-offset-2">
+                                        <button type="submit" class="btn btn-raised btn-primary" onclick="create_room();return false;">Create</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
+
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <button type="button" class="btn btn-fab btn-material-grey-200 opensource">
+                        <i class="mdi-action-open-in-new"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="assets/material/js/bootstrap.min.js"></script>
+
+<script src="assets/material/js/material.min.js"></script>
+<script src="assets/material/js/ripples.min.js"></script>
+<!--
+<script src='http://localhost:2015/socket.io/socket.io.js'></script>
+<script src='assets/js/lib/adapter.js'></script>
+<script src='assets/js/main.js'></script>-->
+
+<script>
+    function closeChat() {
+        // stop();
+        window.close();
+    }
+
+
+</script>
+
+<script>
+    $(function(){
+        $.material.init();
+    });
+</script>
+
+</body>
+</html>
