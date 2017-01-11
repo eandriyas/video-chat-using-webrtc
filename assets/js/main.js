@@ -38,7 +38,7 @@ if (room === '') {
   //
 }
 
-var socket = io.connect('http://localhost:2015');
+var socket = io.connect('http://'+window.location.hostname+':2015');
 
 if (room !== '') {
   console.log('Create or join room', room);
