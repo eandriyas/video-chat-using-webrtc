@@ -4,7 +4,7 @@ var file = new(static.Server)();
 var app = http.createServer(function (req, res) {
   file.serve(req, res);
 });
-app.listen(2015, 'node.dev');
+app.listen(2015, '0.0.0.0');
 
 console.log('server running at : *:2015');
 var io = require('socket.io').listen(app);
